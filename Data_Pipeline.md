@@ -18,6 +18,7 @@ This documents take you through the complete data pipeline desing i.e. reading f
 * Jenkins for Automation of Infra and Code Deployment
 * AWS Resources:
     * S3 Bucket
+    * CloudWatch Event Rule  
     * SQS
     * AWS DynamoDB
     * AWS Lambda
