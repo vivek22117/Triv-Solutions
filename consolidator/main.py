@@ -1,15 +1,37 @@
 import boto3
 import json
 import logging
+import os
 from urllib.parse import unquote_plus
 
 logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s', level=logging.DEBUG,
                     datefmt='%Y-%m-%d %H:%M:%S')
 logger = logging.getLogger()
 
-s3_client = boto3.client('s3')
 
-priority_partners = ['Partner_B', 'Partner_A', 'Partner_D', 'Partner_D']
+# Use IAM lambda role to generate credentials instead of hard coded ACCESS_KEY & SECRET_KEY
+s3_client = boto3.client('s3')
+dynamodb_client = boto3.client('dynamodb')
+
+
+# Can be passed via Lambda environment variables
+# TABLE_NAME = os.environ['dynamo_db_table']
+TABLE_NAME = 'Partners-Priority-Storage'
+
+priority_partners = ['Partner_B', 'Partner_A', 'Partner_D', 'Partner_E']
+
+
+def fetch_partners_list(TABLE_NAME):
+    # Use the DynamoDB client to query
+    response = dynamodb_client.query(
+        TableName=TABLE_NAME,
+        KeyConditionExpression='contentType = :contentType',
+        ExpressionAttributeValues={
+            ':contentType': {'S': 'PriorityList'}
+        }
+    )
+    print(response['Items'])
+    return response['Items'][0]['Partners']['SS']
 
 
 def consolidate_data(json_object):
@@ -19,6 +41,9 @@ def consolidate_data(json_object):
         catalog_data = json.loads(json_object)
         print(catalog_data)
         print(type(catalog_data))
+        partners_list = fetch_partners_list(TABLE_NAME)
+        for partner in partners_list:
+            print(partner)
         for catalog in catalog_data:
             print(catalog['partner_name'])
 
