@@ -113,7 +113,7 @@ capacity. This intermediate process will help us to control the size of output f
 SQS and number of objects processed at lambda code. 
 
 ## Flow-Diagram
-![Data Flow Diagram for Lambda Processor](./data/images/data_flow_diagram.jpg)
+![Data Flow Diagram for Lambda Processor](./images/data_flow_diagram.jpg)
 
 
 ## Important Links
