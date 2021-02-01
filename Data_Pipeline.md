@@ -64,12 +64,12 @@ SQS
 AWS DynamoDB
 ***
 > AWS DynamoDB to store list of priority partners.
-* Configure sufficient amount of ReadCapacity along with 2 write capacity is sufficient.
+* Configure sufficient amount of ReadCapacity (5) along with 2 write capacity is sufficient.
 * DynamoDB has been considered to store the Partner's Priority list as it has a easy integration
 with AWS lambda and provide single digit of millisecond to fetch the data. Along with this it can 
 be further used to store more information required such as black-listed partner's.
 * Current design of DynamoDB table has high read capacity and very less write capacity. Partition key is String with 
-header as ContentType.  
+header as ContentType. And partner's list is store in List datatype of dynamoDB. 
 
 
 AWS Lambda
