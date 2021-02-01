@@ -3,9 +3,10 @@
 ## Table of contents
 * [General info](#general-info)
 * [Technologies & AWS Services](#technologies)
+* [Orchestrate & Deploy Pipeline](#orchestrate--deploy-pipeline)
+* [AWS Resource Configuration](#aws-resource-configuration)
+* [How the components will be triggered](#how-the-components-will-be-triggered)
 * [Flow-Diagram](#flow-diagram)
-* [AWS Resource Configuration](#aws resource configuration)
-* [Deployment Pipeline](#deployment pipeline)
 
 
 ## General info
@@ -25,6 +26,7 @@ This documents take you through the complete data pipeline design i.e. reading f
     * AWS Lambda
     * AWS CloudWatch
     * AWS IAM
+    * SNS
     
  
 ## Orchestrate & Deploy Pipeline
