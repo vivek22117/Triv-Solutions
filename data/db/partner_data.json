@@ -1,0 +1,4 @@
+{
+    "contentType": {"S": "PriorityList"},
+    "partner_list": {"L": [{"S": "Partner_A"}, {"S": "Partner_T"}, {"S": "Partner_D"}, {"S": "Partner_Q"}, {"S": "Partner_B"}, {"S": "Partner_C"}, {"S": "Partner_X"}, {"S": "Partner_E"}, {"S": "Partner_U"}, {"S": "Partner_P"}, {"S": "Partner_Q"}]}
+}
